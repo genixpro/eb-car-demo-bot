@@ -1,0 +1,20 @@
+
+<div class="conversation">
+  <ul>
+    <li *ngFor="let message of messages">
+      <message [text] = message></message>
+    </li>
+  </ul>
+</div>
+
+
+<div class="inputArea">
+  <div class="btn btn-default microphoneButton" [class.active]="listening" (click)="microphoneClicked($event)">
+    <i class="fa fa-microphone"></i>
+  </div>
+
+  <input [(ngModel)]="inputMessage">
+
+  <p>{{inputMessage}}</p>
+</div>
+

@@ -1,0 +1,57 @@
+
+
+
+.conversation
+{
+  position: absolute;
+  left: 5%;
+  width: 90%;
+  top: 5%;
+  height: 75%;
+  background-color: white;
+  border: 3px #11004B inset;
+}
+
+
+
+.dialog_entry
+{
+  width: 90%;
+}
+
+
+
+.inputArea
+{
+  position: absolute;
+  left: 5%;
+  width: 90%;
+  top: 85%;
+  height: 50px;
+  background-color: white;
+  border: 3px #11004B inset;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.microphoneButton
+{
+  height: 100%;
+  font-size: 25px;
+  flex-grow: 0;
+}
+
+.microphoneButton.active
+{
+  background-color: #6fff37;
+}
+
+
+
+.inputArea input
+{
+  left: 0;
+  color: black;
+  flex-grow: 1;
+}
