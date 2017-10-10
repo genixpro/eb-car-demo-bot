@@ -1,8 +1,8 @@
 
-<div class="conversation">
+<div class="conversation" id="mainConversationBody">
   <ul>
     <li *ngFor="let message of messages">
-      <message [text] = message></message>
+      <message [text]=message.message [person]=message.person></message>
     </li>
   </ul>
 </div>
@@ -13,8 +13,6 @@
     <i class="fa fa-microphone"></i>
   </div>
 
-  <input [(ngModel)]="inputMessage">
-
-  <p>{{inputMessage}}</p>
+  <input [(ngModel)]="inputMessage" (keyup.enter)="onEnter()">
 </div>
 

@@ -1,2 +1,18 @@
-<p>{{text}}</p>
+<div class="message" [@flyInOut]="">
+  <div class="profilePicture">
+    <div *ngIf="person == 'bot'"><img src="assets/bot-profile-pic.png"></div>
+    <div *ngIf="person == 'human'"><img src="assets/human-profile-pic.png"></div>
+  </div>
+  <div class="messageTextArea">
+    <div class="messageHeader">
+      <div *ngIf="person == 'bot'"><span>Bot</span></div>
+      <div *ngIf="person == 'human'"><span>You</span></div>
+    </div>
+    <div class="messageBody">
+      <span>{{text}}</span>
+    </div>
+  </div>
+</div>
+
+
 

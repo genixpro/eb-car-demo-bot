@@ -10,9 +10,19 @@
   height: 75%;
   background-color: white;
   border: 3px #11004B inset;
+  overflow-y: scroll;
 }
 
 
+.conversation ul
+{
+  padding: 0;
+}
+
+.conversation li
+{
+  list-style-type: none;
+}
 
 .dialog_entry
 {

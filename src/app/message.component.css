@@ -1,0 +1,51 @@
+
+
+.message
+{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
+
+.message:hover
+{
+  background-color: #f2f2f2;
+}
+
+
+.profilePicture
+{
+  flex-grow: 0;
+  width: 60px;
+}
+
+
+.profilePicture img
+{
+  width: 50px;
+}
+
+
+.messageTextArea
+{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.messageTextArea .messageHeader
+{
+  flex-grow: 0;
+  font-weight: bold;
+}
+
+.messageTextArea .messageBody
+{
+  flex-grow: 1;
+}

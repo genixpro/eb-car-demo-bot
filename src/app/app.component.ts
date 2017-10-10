@@ -1,18 +1,24 @@
-import { Component, NgZone} from '@angular/core';
+import {AfterViewChecked, Component, NgZone} from '@angular/core';
 import * as speechSDK from 'microsoft-speech-browser-sdk/Speech.Browser.Sdk';
 import { MessageComponent } from './message.component';
+import {ApiAiClient} from "api-ai-javascript";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent
+export class AppComponent implements AfterViewChecked
 {
   public inputMessage: String;
   public recognizer: any;
   public listening: boolean;
-  public messages: Array<String>;
+  public messages: Array<{
+    person: String,
+    message: String
+  }>;
+  public chatClient: ApiAiClient;
+  public minimumResponseDelay: number;
 
   constructor(private zone:NgZone)
   {
@@ -33,6 +39,60 @@ export class AppComponent
     this.recognizer = speechSDK.CreateRecognizer(recognizerConfig, authentication);
     this.listening = false;
     this.messages = [];
+
+    this.chatClient = new ApiAiClient({accessToken: 'd0ed6d507e594c0f988c863acf7829fa'});
+    this.minimumResponseDelay = 500;
+  }
+
+  public addMessage(message)
+  {
+    this.messages.push(message);
+  }
+
+  public submitText()
+  {
+    const message = this.inputMessage;
+
+    this.addMessage({
+      person: 'human',
+      message: message
+    });
+
+
+    const startTime = new Date();
+
+    this.chatClient.textRequest(message)
+      .then((response) => {
+        let responseMessage = response.result.fulfillment.speech;
+        // console.log(response);
+
+        if (response.result.metadata.intentName == 'Describe Vehicle')
+        {
+          // Get the type of car in order to generate an appropriate response.
+          if (response.result.parameters.vehicle_model == 'camry')
+          {
+            responseMessage = "The Camry is a great, mid-market vehicle."
+          }
+          else if (response.result.parameters.vehicle_model == 'corolla')
+          {
+            responseMessage = "The Corolla is a great compact sedan. It competes with the Honda Civic and Ford Focus."
+          }
+        }
+
+
+        const delay = Math.max(0, (this.minimumResponseDelay - (Date.now() - startTime.getTime())) );
+        console.log(delay);
+        setTimeout(() =>
+        {
+          this.addMessage({
+            "person": 'bot',
+            "message": responseMessage
+          });
+        }, delay);
+      })
+      .catch((error) => {/* do something here too */});
+
+    this.inputMessage = "";
   }
 
   public microphoneClicked(event)
@@ -61,8 +121,7 @@ export class AppComponent
               break;
             case "SpeechEndDetectedEvent" :
               this.listening = false;
-              this.messages.push(this.inputMessage);
-              this.inputMessage = "";
+              this.submitText();
               break;
             case "SpeechSimplePhraseEvent" :
               break;
@@ -82,5 +141,15 @@ export class AppComponent
           });
 
     }
+  }
+
+  public onEnter()
+  {
+    this.submitText();
+  }
+
+  ngAfterViewChecked() {
+    var conversationBody = document.querySelector('#mainConversationBody');
+    conversationBody.scrollTop = conversationBody.scrollHeight - conversationBody.clientHeight;
   }
 }
