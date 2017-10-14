@@ -740,24 +740,25 @@ export class AppComponent implements AfterViewChecked {
           });
 
 
+          const capitalizedFeature = feature[0].toUpperCase() + feature.substring(1);
+
           if(trims.length == 0)
           {
-            responseMessage = feature + " must be purchased extra.";
+            responseMessage = capitalizedFeature + " must be purchased extra.";
           }
           else if(trims.length == 1)
           {
-            responseMessage = feature + " is only standard on the " + trims[0] + ".";
+            responseMessage = capitalizedFeature + " is only standard on the " + trims[0] + ".";
           }
           else if(trims.length == 2)
           {
-            responseMessage = feature + " is standard on the " + trims.join(" and the ") + ".";
+            responseMessage = capitalizedFeature + " is standard on the " + trims.join(" and the ") + ".";
           }
           else
           {
             const trimsExceptLast = trims.slice(0, trims.length - 1);
             const lastTrim = trims[trims.length - 1];
 
-            const capitalizedFeature = feature[0].toUpperCase() + feature.substring(1);
 
             responseMessage = capitalizedFeature + " is standard on the " + trimsExceptLast.join(", the ") + " and the " + lastTrim + ".";
           }
