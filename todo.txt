@@ -1,9 +1,6 @@
-- Change the background to a screenshot of Corolla page on the Toyota website
-- Move the carbot window into the bottom right hand corner
 
-- Have the bot initialize the conversation about specific vehicle
 - Change the icon for the person to andrews photo with facebook icon,
 - Change the icon for the bot to a the product photo from hadid.
 
 - Add in a dummy button for the person to log into facebook when the conversation reaches test-drive
-- 
+-

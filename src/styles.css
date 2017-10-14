@@ -14,7 +14,9 @@ body
 {
   font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 13px;
-  background: linear-gradient(to bottom right, #11004B, #1e3e55) !important;
+  background: url('/assets/background.png');
+  background-size: cover;
   color:black;
+  height: 2500px;
 }
 

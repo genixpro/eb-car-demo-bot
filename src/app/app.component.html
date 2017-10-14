@@ -1,18 +1,23 @@
-
-<div class="conversation" id="mainConversationBody">
-  <ul>
-    <li *ngFor="let message of messages">
-      <message [text]=message.message [person]=message.person></message>
-    </li>
-  </ul>
-</div>
-
-
-<div class="inputArea">
-  <div class="btn btn-default microphoneButton" [class.active]="listening" (click)="microphoneClicked($event)">
-    <i class="fa fa-microphone"></i>
+<div class="conversationArea">
+  <div class="header">
+    <h1>Chat with Toyota</h1>
   </div>
 
-  <input [(ngModel)]="inputMessage" (keyup.enter)="onEnter()">
-</div>
 
+  <div class="conversation" id="mainConversationBody">
+    <ul>
+      <li *ngFor="let message of messages">
+        <message [text]=message.message [person]=message.person></message>
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="inputArea">
+    <div class="btn btn-default microphoneButton" [class.active]="listening" (click)="microphoneClicked($event)">
+      <i class="fa fa-microphone"></i>
+    </div>
+
+    <input [(ngModel)]="inputMessage" (keyup.enter)="onEnter()">
+  </div>
+</div>

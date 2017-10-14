@@ -1,16 +1,42 @@
 
+.conversationArea
+{
+  position: fixed;
+  left: 73%;
+  top: 25%;
+  width: 25%;
+  height: 70%;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f0efe9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 5px 5px 10px #757575;
+}
+
+
+.header
+{
+  width: 100%;
+  background-color: #0086d1;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+}
+
+.header h1
+{
+  color: white;
+  font-size: 20px;
+}
 
 
 .conversation
 {
-  position: absolute;
-  left: 5%;
-  width: 90%;
-  top: 5%;
-  height: 75%;
-  background-color: white;
-  border: 3px #11004B inset;
+  width: 100%;
   overflow-y: scroll;
+  flex-grow: 1;
 }
 
 
@@ -22,6 +48,8 @@
 .conversation li
 {
   list-style-type: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .dialog_entry
@@ -33,13 +61,9 @@
 
 .inputArea
 {
-  position: absolute;
-  left: 5%;
+  margin-left:5%;
+  margin-bottom: 10px;
   width: 90%;
-  top: 85%;
-  height: 50px;
-  background-color: white;
-  border: 3px #11004B inset;
 
   display: flex;
   flex-direction: row;
@@ -50,6 +74,7 @@
   height: 100%;
   font-size: 25px;
   flex-grow: 0;
+  margin-right: 5px;
 }
 
 .microphoneButton.active
@@ -64,4 +89,5 @@
   left: 0;
   color: black;
   flex-grow: 1;
+  font-size: 15px
 }
