@@ -1,5 +1,153 @@
 
+.window
+{
+  width: 100%;
+  overflow-y: scroll;
+  font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 13px;
+  position: relative;
+}
+
+
+.window.facebook
+{
+  background: url('/assets/background-facebook.png');
+  background-size: cover;
+  color:black;
+  height: 1900px;
+}
+
+.window.dealership
+{
+  background: url('/assets/background.png');
+  background-size: cover;
+  color:black;
+  height: 4500px;
+}
+
+.toyotaAd
+{
+  position: absolute;
+  top: 12%;
+  height: 24%;
+  left: 25%;
+  width: 32%;
+  cursor: pointer;
+}
+
+
 .conversationArea
+{
+  display: none;
+}
+
+.conversationArea.visible
+{
+  display: flex;
+}
+
+
+
+.facebook .conversationArea
+{
+  position: fixed;
+  left: 73%;
+  top: 60%;
+  width: 15%;
+  height: 40%;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 3px;
+  border: 1px solid grey;
+  overflow: hidden;
+}
+
+
+.facebook .header
+{
+  width: 100%;
+  background-color: #0086d1;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 10px;
+}
+
+.facebook .header h1
+{
+  color: white;
+  font-size: 12px;
+  margin: 3px;
+}
+
+
+.facebook .conversation
+{
+  width: 100%;
+  overflow-y: scroll;
+  flex-grow: 1;
+}
+
+
+.facebook .conversation ul
+{
+  padding: 0;
+}
+
+.facebook .conversation li
+{
+  list-style-type: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.facebook .dialog_entry
+{
+  width: 90%;
+}
+
+
+
+.facebook .inputArea
+{
+  margin-left:0;
+  margin-bottom: 10px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid lightgrey;
+}
+
+.facebook .microphoneButton
+{
+  display: none;
+}
+
+
+.facebook .inputArea input
+{
+  left: 0;
+  color: black;
+  flex-grow: 1;
+  font-size: 15px;
+  margin-left: 5px;
+  margin-top: 3px;
+  border:0;
+}
+
+.facebook .inputArea input::placeholder
+{
+  color: #d9d9d9;
+}
+
+
+.facebook .facebook-chat-icons
+{
+  width: 100%;
+}
+
+
+.dealership .conversationArea
 {
   position: fixed;
   left: 73%;
@@ -7,7 +155,6 @@
   width: 25%;
   height: 70%;
   min-height: 400px;
-  display: flex;
   flex-direction: column;
   background-color: #f0efe9;
   border-radius: 10px;
@@ -16,7 +163,7 @@
 }
 
 
-.header
+.dealership .header
 {
   width: 100%;
   background-color: #0086d1;
@@ -25,14 +172,14 @@
   padding-left: 20px;
 }
 
-.header h1
+.dealership .header h1
 {
   color: white;
   font-size: 20px;
 }
 
 
-.conversation
+.dealership .conversation
 {
   width: 100%;
   overflow-y: scroll;
@@ -40,26 +187,26 @@
 }
 
 
-.conversation ul
+.dealership .conversation ul
 {
   padding: 0;
 }
 
-.conversation li
+.dealership .conversation li
 {
   list-style-type: none;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.dialog_entry
+.dealership .dialog_entry
 {
   width: 90%;
 }
 
 
 
-.inputArea
+.dealership .inputArea
 {
   margin-left:5%;
   margin-bottom: 10px;
@@ -69,7 +216,7 @@
   flex-direction: row;
 }
 
-.microphoneButton
+.dealership .microphoneButton
 {
   height: 100%;
   font-size: 25px;
@@ -77,14 +224,13 @@
   margin-right: 5px;
 }
 
-.microphoneButton.active
+.dealership .microphoneButton.active
 {
   background-color: #6fff37;
 }
 
 
-
-.inputArea input
+.dealership .inputArea input
 {
   left: 0;
   color: black;

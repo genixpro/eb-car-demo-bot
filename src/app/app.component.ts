@@ -19,6 +19,8 @@ export class AppComponent implements AfterViewChecked {
   public chatClient: ApiAiClient;
   public minimumResponseDelay: number;
   public specsData: any;
+  public mode: String;
+  public chatAreaVisible: boolean;
 
   constructor(private zone: NgZone) {
     this.inputMessage = "";
@@ -43,6 +45,9 @@ export class AppComponent implements AfterViewChecked {
       "person": 'bot',
       "message": "Hello, I noticed your checking out the Corolla. Is there anything we can help you with?"
     });
+
+    this.mode = 'facebook';
+    this.chatAreaVisible = false;
 
     this.chatClient = new ApiAiClient({accessToken: 'd0ed6d507e594c0f988c863acf7829fa'});
     this.minimumResponseDelay = 500;
@@ -689,6 +694,17 @@ export class AppComponent implements AfterViewChecked {
       }]
     };
   }
+
+  public showChatArea() {
+    this.chatAreaVisible = true;
+  }
+
+  public messageClicked(message) {
+    if (message.message.toLowerCase().indexOf("toyota.com") != -1 || message.message.toLowerCase().indexOf("toyota.ca") != -1) {
+      this.mode = 'dealership';
+    }
+  }
+
 
   public addMessage(message) {
     this.messages.push(message);

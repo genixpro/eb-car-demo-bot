@@ -1,23 +1,36 @@
-<div class="conversationArea">
-  <div class="header">
-    <h1>Chat with Toyota</h1>
+<div class="window" [ngClass]="mode">
+
+  <div class="toyotaAd" (click)="showChatArea()">
+    &nbsp;
   </div>
 
 
-  <div class="conversation" id="mainConversationBody">
-    <ul>
-      <li *ngFor="let message of messages">
-        <message [text]=message.message [person]=message.person></message>
-      </li>
-    </ul>
-  </div>
-
-
-  <div class="inputArea">
-    <div class="btn btn-default microphoneButton" [class.active]="listening" (click)="microphoneClicked($event)">
-      <i class="fa fa-microphone"></i>
+  <div class="conversationArea" [class.visible]="chatAreaVisible">
+    <div class="header">
+      <h1>Chat with Reo</h1>
     </div>
 
-    <input [(ngModel)]="inputMessage" (keyup.enter)="onEnter()">
+
+    <div class="conversation" id="mainConversationBody">
+      <ul>
+        <li *ngFor="let message of messages">
+          <message [text]=message.message [person]=message.person [mode]=mode (click)="messageClicked(message)"></message>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="inputArea">
+      <div class="btn btn-default microphoneButton" [class.active]="listening" (click)="microphoneClicked($event)">
+        <i class="fa fa-microphone"></i>
+      </div>
+
+      <input [(ngModel)]="inputMessage" (keyup.enter)="onEnter()" placeholder="Type a message...">
+    </div>
+
+    <div *ngIf="mode == 'facebook'">
+      <img src="assets/facebook-chat-icons.png" class="facebook-chat-icons">
+    </div>
   </div>
+
 </div>

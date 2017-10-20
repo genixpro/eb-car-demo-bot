@@ -28,6 +28,7 @@ export class MessageComponent
 {
   @Input() person: String;
   @Input() text: String;
+  @Input() mode: String;
 }
 
 
