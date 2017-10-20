@@ -9,21 +9,18 @@
 }
 
 
-.window.facebook
+.window .background-container
 {
-  background: url('/assets/background-facebook.png');
-  background-size: cover;
-  color:black;
-  height: 1900px;
+  width: 100%;
+  position: relative;
 }
 
-.window.dealership
+.window img.background
 {
-  background: url('/assets/background.png');
-  background-size: cover;
-  color:black;
-  height: 4500px;
+  width: 100%;
 }
+
+
 
 .toyotaAd
 {
@@ -51,10 +48,10 @@
 .facebook .conversationArea
 {
   position: fixed;
-  left: 73%;
-  top: 60%;
-  width: 15%;
-  height: 40%;
+  right: 12%;
+  top: calc(100% - 400px);
+  width: 300px;
+  height: 400px;
   flex-direction: column;
   background-color: #ffffff;
   border-radius: 3px;
@@ -208,9 +205,9 @@
 
 .dealership .inputArea
 {
-  margin-left:5%;
+  margin-left:10px;
   margin-bottom: 10px;
-  width: 90%;
+  width: calc(100% - 30px);
 
   display: flex;
   flex-direction: row;
@@ -218,6 +215,7 @@
 
 .dealership .microphoneButton
 {
+  width: 48px;
   height: 100%;
   font-size: 25px;
   flex-grow: 0;

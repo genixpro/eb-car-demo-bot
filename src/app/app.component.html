@@ -1,7 +1,15 @@
 <div class="window" [ngClass]="mode">
 
-  <div class="toyotaAd" (click)="showChatArea()">
-    &nbsp;
+  <div *ngIf="mode == 'facebook'" class="background-container">
+    <img class="background" src="assets/background-facebook.png">
+
+    <div class="toyotaAd" (click)="showChatArea()">
+      &nbsp;
+    </div>
+  </div>
+
+  <div *ngIf="mode == 'dealership'" class="background-container">
+    <img class="background" src="assets/background.png">
   </div>
 
 
