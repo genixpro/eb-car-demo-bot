@@ -701,7 +701,11 @@ export class AppComponent implements AfterViewChecked {
 
   public messageClicked(message) {
     if (message.message.toLowerCase().indexOf("toyota.com") != -1 || message.message.toLowerCase().indexOf("toyota.ca") != -1) {
-      this.mode = 'dealership';
+      setTimeout(() =>
+      {
+        this.mode = 'dealership';
+        this.messages = [this.messages[this.messages.length - 1]];
+      }, 500);
     }
   }
 
