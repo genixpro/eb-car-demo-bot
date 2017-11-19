@@ -1,7 +1,9 @@
 import {AfterViewChecked, Component, NgZone} from '@angular/core';
 import * as speechSDK from 'microsoft-speech-browser-sdk/Speech.Browser.Sdk';
+import { ActivatedRoute } from '@angular/router';
 import {MessageComponent} from './message.component';
 import {ApiAiClient} from "api-ai-javascript";
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +24,7 @@ export class AppComponent implements AfterViewChecked {
   public mode: String;
   public chatAreaVisible: boolean;
 
-  constructor(private zone: NgZone) {
+  constructor(private zone: NgZone, route: ActivatedRoute) {
     this.inputMessage = "";
 
     const recognizerConfig = new speechSDK.RecognizerConfig(
@@ -43,11 +45,11 @@ export class AppComponent implements AfterViewChecked {
 
     this.addMessage({
       "person": 'bot',
-      "message": "Hello, I noticed your checking out the Corolla. Is there anything we can help you with?"
+      "message": "Hello, Dan, I have noticed that you have shown an interest in the Rav4 AWD SE model. Did you have any questions regarding the vehicle?"
     });
 
-    this.mode = 'facebook';
-    this.chatAreaVisible = false;
+    this.mode = 'dealership';
+    this.chatAreaVisible = true;
 
     this.chatClient = new ApiAiClient({accessToken: 'd0ed6d507e594c0f988c863acf7829fa'});
     this.minimumResponseDelay = 500;
