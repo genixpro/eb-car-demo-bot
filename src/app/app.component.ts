@@ -45,7 +45,7 @@ export class AppComponent implements AfterViewChecked {
 
     this.addMessage({
       "person": 'bot',
-      "message": "Hello, Dan, I have noticed that you have shown an interest in the Rav4 AWD SE model. Did you have any questions regarding the vehicle?"
+      "message": "Hello, Magesh, I have noticed that you have shown an interest in the Corolla. Did you have any questions regarding the vehicle?"
     });
 
     this.mode = 'dealership';
