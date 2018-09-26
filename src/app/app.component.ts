@@ -736,7 +736,7 @@ export class AppComponent implements AfterViewChecked {
         let responseMessage = response.result.fulfillment.speech;
         // console.log(response);
 
-        if (response.result.metadata.intentName == 'Ask about feature')
+        if (response.result.metadata.intentName == 'AskAboutFeature')
         {
           const feature = response.result.parameters.feature;
 
